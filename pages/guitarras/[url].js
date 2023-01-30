@@ -72,7 +72,7 @@ function Producto({ guitarra, agregarCarrito, eliminarProducto, actualizarCantid
 export default Producto
 
 export async function getStaticPaths() {
-  const respuesta = await fetch(`http://localhost:1337/api/guitarras`)
+  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras`)
   const { data } = await respuesta.json()
   const paths = data.map(guitarra => ({
     params: {
@@ -86,7 +86,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const respuesta = await fetch(`http://localhost:1337/api/guitarras?filters[url]=${params.url}&populate=imagen`)
+  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?filters[url]=${params.url}&populate=imagen`)
   const { data: guitarra } = await respuesta.json()
   return {
     props: {
@@ -94,13 +94,3 @@ export async function getStaticProps({ params }) {
     }
   }
 }
-// export async function getServerSideProps({ query }) {
-
-//   const respuesta = await fetch(`http://localhost:1337/api/guitarras?filters[url]=${query.url}&populate=imagen`)
-//   const { data: guitarra } = await respuesta.json()
-//   return {
-//     props: {
-//       guitarra
-//     }
-//   }
-// }

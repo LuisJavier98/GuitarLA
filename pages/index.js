@@ -60,9 +60,9 @@ export default function Home({ guitarras, posts, curso }) {
 }
 export async function getStaticProps() {
   const [resGuitarras, resPosts, resCurso] = await Promise.all([
-    fetch('http://localhost:1337/api/guitarras?populate=imagen'),
-    fetch('http://localhost:1337/api/posts?populate=imagen'),
-    fetch('http://localhost:1337/api/curso?populate=imagen')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?populate=imagen`),
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=imagen`),
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/curso?populate=imagen`)
   ])
 
   const [{ data: guitarras }, { data: posts }, { data: curso }] = await Promise.all([

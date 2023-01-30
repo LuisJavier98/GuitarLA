@@ -22,7 +22,7 @@ export default function Post({ post }) {
 
 
 export async function getStaticPaths() {
-  const resultado = await fetch('http://localhost:1337/api/posts')
+  const resultado = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
   const { data } = await resultado.json()
   const paths = data.map(post => ({
     params: {
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(datos) {
   console.log(datos)
-  const respuesta = await fetch(`http://localhost:1337/api/posts?filters[url]=${datos.params.url}&populate=imagen`)
+  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?filters[url]=${datos.params.url}&populate=imagen`)
   const { data: post } = await respuesta.json()
   return {
     props: {
