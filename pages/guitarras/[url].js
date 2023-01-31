@@ -4,12 +4,9 @@ import { useState } from 'react'
 import styles from '../../styles/guitarras.module.css'
 
 
-function Producto({ guitarra, agregarCarrito, eliminarProducto, actualizarCantidad }) {
+function Producto({ guitarra, agregarCarrito }) {
   const { nombre, descripcion, imagen, precio } = guitarra[0].attributes
   const [cantidad, setcantidad] = useState(0)
-  const [arregloGuitarras, setarregloGuitarras] = useState([])
-
-  console.log(arregloGuitarras)
 
   const handleSubmit = (e) => {
     e.preventDefault()

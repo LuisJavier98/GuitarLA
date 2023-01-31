@@ -33,7 +33,7 @@ function Blog({ posts }) {
 
 export default Blog
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=imagen`)
   const { data: posts } = await respuesta.json()
   return {
