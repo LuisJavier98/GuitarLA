@@ -39,7 +39,8 @@ export async function getStaticProps() {
   const { data: posts } = await respuesta.json()
   return {
     props: {
-      posts
+      posts,
+      fallback: true
     }
   }
 }

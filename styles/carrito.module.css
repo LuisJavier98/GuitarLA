@@ -21,12 +21,25 @@
 
 .producto {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 0.5fr;
   gap: 4rem;
   align-items: center;
   padding: 3rem 0;
   border-bottom: 1px solid #cfcfcf;
   position: relative;
+}
+
+@media (min-width:400px) {
+  .producto {
+    grid-template-columns: 1fr 2fr;
+    grid-template-columns: none;
+  }
+
+  .producto :first-child img {
+    display: block;
+    margin: 0px auto;
+  }
+
 }
 
 .producto:last-of-type {

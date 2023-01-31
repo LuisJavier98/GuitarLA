@@ -75,7 +75,7 @@ export async function getServerSideProps({ params }) {
   const { data: guitarra } = await respuesta.json()
   return {
     props: {
-      guitarra
+      guitarra,
     }
   }
 }

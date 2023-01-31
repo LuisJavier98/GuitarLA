@@ -42,7 +42,8 @@ export async function getStaticProps() {
   const { data: guitarras } = await respuesta.json()
   return {
     props: {
-      guitarras
+      guitarras,
+      fallback: true
     }
   }
 }

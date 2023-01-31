@@ -75,7 +75,8 @@ export async function getStaticProps() {
     props: {
       guitarras,
       posts,
-      curso
+      curso,
+      fallback: true
     }
   }
 }
