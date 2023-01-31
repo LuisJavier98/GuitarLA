@@ -43,7 +43,7 @@ export default function Carrito({ carrito, actualizarCantidad, eliminarProducto 
           </div>
           <aside className={styles.resumen}>
             <h3>Resumen del Pedido</h3>
-            <p>Total a pagar:${carrito.length !== 0 ? carrito.reduce((a, b) => a + b.cantidad * b.precio, 0) : '$0'}</p>
+            <p>Total a pagar:{carrito.length !== 0 ? carrito.reduce((a, b) => a + b.cantidad * b.precio, 0) : '$0'}</p>
           </aside>
 
 

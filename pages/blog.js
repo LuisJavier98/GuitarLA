@@ -1,8 +1,7 @@
 import Layout from '@/components/layout'
 import React, { Suspense } from 'react'
-import Post from '../components/post'
 import styles from '../styles/grid.module.css'
-
+const LazyPost = React.lazy(() => import('../components/post'))
 
 function Blog({ posts }) {
   return (
@@ -13,11 +12,17 @@ function Blog({ posts }) {
         <main className='contenedor'>
           <h1 className='heading'>Blog</h1>
           <div className={styles.grid}>
-            {posts.map(post => (
-
-
-              <Post post={post.attributes} />
-
+            {posts?.map(post => (
+              <Suspense key={post.id} fallback={<div className="sk-chase">
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot" ></div >
+                <div className="sk-chase-dot" ></div >
+              </div >}>
+                <LazyPost post={post.attributes} />
+              </Suspense >
             ))}
           </div >
         </main >

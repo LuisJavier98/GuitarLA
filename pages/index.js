@@ -19,8 +19,8 @@ export default function Home({ guitarras, posts, curso }) {
         <main className='contenedor'>
           <h1 className='heading'>Nuestra Coleccion</h1>
           <div className={styles.grid}>
-            {guitarras.map(guitarra => (
-              <Suspense fallback={<div className="sk-chase">
+            {guitarras?.map(guitarra => (
+              <Suspense key={guitarra.id} fallback={<div className="sk-chase">
                 <div className="sk-chase-dot"></div>
                 <div className="sk-chase-dot"></div>
                 <div className="sk-chase-dot"></div>
@@ -40,8 +40,8 @@ export default function Home({ guitarras, posts, curso }) {
         <section>
           <h2 className='heading'>Blog</h2>
           <div className={styles.grid}>
-            {posts.map(post => (
-              <Suspense fallback={<div className="sk-chase">
+            {posts?.map(post => (
+              <Suspense key={post.id} fallback={<div className="sk-chase">
                 <div className="sk-chase-dot"></div>
                 <div className="sk-chase-dot"></div>
                 <div className="sk-chase-dot"></div>
