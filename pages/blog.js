@@ -34,7 +34,7 @@ function Blog({ posts, carrito }) {
 
 export default Blog
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=imagen`)
   const { data: posts } = await respuesta.json()
   return {
