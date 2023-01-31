@@ -59,7 +59,7 @@ export default function Home({ guitarras, posts, curso, carrito }) {
     </>
   )
 }
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const [resGuitarras, resPosts, resCurso] = await Promise.all([
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?populate=imagen`),
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?populate=imagen`),
