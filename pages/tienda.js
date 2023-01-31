@@ -36,7 +36,7 @@ function Tienda({ guitarras }) {
 
 export default Tienda
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?populate=imagen`)
   const { data: guitarras } = await respuesta.json()
   return {
