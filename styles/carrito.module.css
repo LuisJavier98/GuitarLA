@@ -32,7 +32,7 @@
 @media (min-width:400px) {
   .producto {
     grid-template-columns: 1fr 2fr;
-    grid-template-columns: none;
+    grid-template-rows: none;
   }
 
   .producto :first-child img {
