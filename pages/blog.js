@@ -13,7 +13,7 @@ function Blog({ posts }) {
           <h1 className='heading'>Blog</h1>
           <div className={styles.grid}>
             {posts.map(post => (
-              <Suspense fallback={<div className="sk-chase">
+              <Suspense key={post.id} fallback={<div className="sk-chase">
                 <div className="sk-chase-dot"></div>
                 <div className="sk-chase-dot"></div>
                 <div className="sk-chase-dot"></div>
@@ -21,7 +21,7 @@ function Blog({ posts }) {
                 <div className="sk-chase-dot" ></div >
                 <div className="sk-chase-dot" ></div >
               </div >}>
-                <LazyPost post={post.attributes} key={post.id} />
+                <LazyPost post={post.attributes} />
               </Suspense >
             ))}
           </div >
