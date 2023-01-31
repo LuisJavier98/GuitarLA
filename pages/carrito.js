@@ -3,9 +3,9 @@ import Image from 'next/image'
 import React from 'react'
 import styles from '../styles/carrito.module.css'
 
-export default function Carrito({ carrito, actualizarCantidad, eliminarProducto }) {
+export default function Carrito({ carrito, actualizarCantidad, eliminarProducto, compraRealizada }) {
   return (
-    <Layout title='carrito'>
+    <Layout title='carrito' carrito={carrito}>
       <main className='contenedor'>
         <h1 className='heading'>
           Carrito
@@ -43,11 +43,12 @@ export default function Carrito({ carrito, actualizarCantidad, eliminarProducto 
           </div>
           <aside className={styles.resumen}>
             <h3>Resumen del Pedido</h3>
-            <p>Total a pagar:{carrito.length !== 0 ? carrito.reduce((a, b) => a + b.cantidad * b.precio, 0) : '$0'}</p>
+            <p>Total a pagar:<span>
+              ${carrito.length !== 0 ? carrito.reduce((a, b) => a + b.cantidad * b.precio, 0) : '0'}
+            </span>
+            </p>
+            <input className={styles.comprar} type="submit" value='COMPRAR' onClick={compraRealizada} />
           </aside>
-
-
-
         </div>
       </main>
     </Layout>

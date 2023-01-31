@@ -3,10 +3,11 @@ import { formatearFecha } from "@/utils/helpers";
 import Image from "next/image";
 import styles from '../../styles/blog.module.css'
 
-export default function Post({ post }) {
+export default function Post({ post, carrito }) {
   const { titulo, contenido, imagen, publishedAt } = post[0].attributes
   return (
     <Layout
+      carrito={carrito}
       title={titulo}>
       <article className={`${styles.post} ${styles['mt-3']}`}>
         <Image src={imagen.data.attributes.url} width={1000} height={400} alt={`imagen blog ${titulo}`} />

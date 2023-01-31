@@ -3,10 +3,11 @@ import Image from "next/image"
 import Styles from '../styles/nosotros.module.css'
 
 
-function Nosotros() {
+function Nosotros({ carrito }) {
   return (
     <>
       <Layout
+        carrito={carrito}
         title='Nosotros'
         description='Sobre nosotros GuitarLA'>
         <main className="contenedor">

@@ -9,10 +9,11 @@ const LazyPost = React.lazy(() => import('../components/post'))
 const inter = Inter({ subsets: ['latin'] })
 
 
-export default function Home({ guitarras, posts, curso }) {
+export default function Home({ guitarras, posts, curso, carrito }) {
   return (
     <>
       <Layout
+        carrito={carrito}
         title='Pagina principal'
         description='Blod de musica , venta de guitarras y mas'
       >

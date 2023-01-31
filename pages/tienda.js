@@ -4,10 +4,11 @@ import styles from '../styles/grid.module.css'
 import React, { Suspense } from 'react'
 const LazyGuitarra = React.lazy(() => import('../components/guitarra'))
 
-function Tienda({ guitarras }) {
+function Tienda({ guitarras, carrito }) {
   return (
     <>
       <Layout
+        carrito={carrito}
         title='Tienda'
         description='Tienda virtual'>
         <main className='contenedor'>

@@ -55,10 +55,38 @@
 
 }
 
+.navegacion a:last-child {
+  position: relative;
+}
+
 .navegacion a:hover {
   background-color: var(--primary);
 }
 
 .active {
   background-color: var(--primary);
+}
+
+.numero {
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  width: 62%;
+  text-align: center;
+  top: -40%;
+  right: -40%;
+  background-color: red;
+  animation: color 1000ms ease infinite forwards;
+
+}
+
+@keyframes color {
+  from {
+    background-color: rgb(216, 77, 77);
+  }
+
+  to {
+    background-color: red;
+  }
+
 }

@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import styles from '../styles/header.module.css'
 
-function Header() {
+function Header({ carrito }) {
   const router = useRouter()
   return (
     <header className={styles.header}>
@@ -32,8 +32,12 @@ function Header() {
               Tienda
             </a>
           </Link>
-          <Link href={'/carrito'}>
+          <Link href={'/carrito'} className={router.pathname === '/carrito' ? styles.active : ''}>
             <Image width={30} height={25} src='/img/carrito.png' alt="Imagen carrito" />
+            {carrito.length !== 0 &&
+              <div className={styles.numero}>
+                {carrito.length}
+              </div>}
           </Link>
         </nav>
       </div>

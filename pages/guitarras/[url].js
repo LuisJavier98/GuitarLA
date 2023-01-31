@@ -4,7 +4,7 @@ import { useState } from 'react'
 import styles from '../../styles/guitarras.module.css'
 
 
-function Producto({ guitarra, agregarCarrito }) {
+function Producto({ guitarra, agregarCarrito, carrito }) {
   const { nombre, descripcion, imagen, precio } = guitarra[0].attributes
   const [cantidad, setcantidad] = useState(0)
 
@@ -26,6 +26,7 @@ function Producto({ guitarra, agregarCarrito }) {
   }
   return (
     <Layout
+      carrito={carrito}
       title={`Guitarra ${nombre}`}
     >
       <div className={styles.guitarra}>

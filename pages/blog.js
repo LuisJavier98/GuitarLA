@@ -3,10 +3,11 @@ import React, { Suspense } from 'react'
 import styles from '../styles/grid.module.css'
 const LazyPost = React.lazy(() => import('../components/post'))
 
-function Blog({ posts }) {
+function Blog({ posts, carrito }) {
   return (
     <>
       <Layout
+        carrito={carrito}
         title='Blog'
         description='Blog de musica,venta de guitarras ,consejos,guitarLA'>
         <main className='contenedor'>

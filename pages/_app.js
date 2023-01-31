@@ -2,6 +2,8 @@ import '@/styles/globals.css'
 import { useEffect, useState } from 'react'
 
 export default function App({ Component, pageProps }) {
+
+
   const carritoLS = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('carrito')) : []
   const [carrito, setCarrito] = useState(carritoLS ?? [])
   const [paginaLista, setpaginaLista] = useState(false)
@@ -25,9 +27,10 @@ export default function App({ Component, pageProps }) {
   }
 
   const eliminarProducto = id => {
-    const carritoActualizado = carrito.filter(producto => producto.id != id)
-    setCarrito(carritoActualizado)
-    window.localStorage.setItem('carrito', JSON.stringify(carrito));
+    if (window.confirm('¿Desea eliminar la guitarra?')) {
+      const carritoActualizado = carrito.filter(producto => producto.id != id)
+      setCarrito(carritoActualizado)
+    }
   }
 
   const actualizarCantidad = guitarra => {
@@ -38,7 +41,18 @@ export default function App({ Component, pageProps }) {
       return guitarraState
     })
     setCarrito(carritoActualizado)
-    window.localStorage.setItem('carrito', JSON.stringify(carrito));
+  }
+
+  const compraRealizada = () => {
+    if (carrito.length <= 0) {
+      window.alert('El carrito esta vacio')
+    }
+    else if (
+      window.confirm('¿Esta seguro que desea realizar la compra?')
+    ) {
+      setCarrito([])
+    }
+
   }
 
   useEffect(() => {
@@ -50,5 +64,6 @@ export default function App({ Component, pageProps }) {
     agregarCarrito={agregarCarrito}
     eliminarProducto={eliminarProducto}
     actualizarCantidad={actualizarCantidad}
+    compraRealizada={compraRealizada}
     {...pageProps} /> : null
 }

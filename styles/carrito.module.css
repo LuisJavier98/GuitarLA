@@ -8,6 +8,10 @@
   .contenido {
     grid-template-columns: 3fr 2fr;
   }
+
+  .select {
+    width: 100%;
+  }
 }
 
 .carrito {
@@ -21,7 +25,7 @@
   gap: 4rem;
   align-items: center;
   padding: 3rem 0;
-  border-bottom: 1ps solid #cfcfcf;
+  border-bottom: 1px solid #cfcfcf;
   position: relative;
 }
 
@@ -51,9 +55,16 @@
   padding: 1rem;
   text-align: center;
   border-radius: 1rem;
-  width: 100%;
+  width: 90%;
   margin-bottom: 2rem;
+  box-sizing: border-box;
 
+}
+
+@media (min-width:768px) {
+  .select {
+    width: 100%;
+  }
 }
 
 .precio {
@@ -66,11 +77,15 @@
 }
 
 .resumen {
-  background-color: #F9FAFB;
+  background-color: #c4cdd6;
   padding: 3rem;
   border-radius: 1rem;
   position: sticky;
   top: 3rem;
+}
+
+.resumen p span {
+  font-weight: 800;
 }
 
 .eliminar {
@@ -83,4 +98,21 @@
 
 .eliminar:hover {
   cursor: pointer;
+}
+
+.comprar {
+  all: unset;
+  display: block;
+  width: 100%;
+  text-align: center;
+  height: 50px;
+  background-color: var(--black);
+  cursor: pointer;
+  transition: all 500ms;
+  color: white;
+}
+
+.comprar:hover {
+  background-color: red;
+  transition: all 500ms;
 }
