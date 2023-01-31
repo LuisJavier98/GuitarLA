@@ -20,25 +20,8 @@ export default function Post({ post }) {
   )
 }
 
-
-export async function getStaticPaths() {
-  const resultado = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
-  const { data } = await resultado.json()
-  const paths = data.map(post => ({
-    params: {
-      url: post.attributes.url
-    }
-  }))
-  return {
-    paths,
-    fallback: false
-  }
-}
-
-
-export async function getStaticProps(datos) {
-  console.log(datos)
-  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts?filters[url]=${datos.params.url}&populate=imagen`)
+export async function getServerSideProps(datos) {
+  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts?filters[url]=${datos.params.url}&populate=imagen`)
   const { data: post } = await respuesta.json()
   return {
     props: {
