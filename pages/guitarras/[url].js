@@ -70,8 +70,8 @@ function Producto({ guitarra, agregarCarrito, carrito }) {
 export default Producto
 
 
-export async function getServerSideProps({ params }) {
-  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?filters[url]=${params.url}&populate=imagen`)
+export async function getServerSideProps(datos) {
+  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?filters[url]=${datos.params.url}&populate=imagen`)
   const { data: guitarra } = await respuesta.json()
   return {
     props: {
