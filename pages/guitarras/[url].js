@@ -69,8 +69,20 @@ function Producto({ guitarra, agregarCarrito, carrito }) {
 
 export default Producto
 
+export async function getStaticPaths() {
+  const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras`)
+  const { data } = await respuesta.json()
+  const paths = data.map(path => {
+    return { params: { url: path.attributes.url } }
+  })
+  return {
+    paths,
+    fallback: false
+  }
+}
 
-export async function getServerSideProps(datos) {
+
+export async function getStaticProps(datos) {
   const respuesta = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/guitarras?filters[url]=${datos.params.url}&populate=imagen`)
   const { data: guitarra } = await respuesta.json()
   return {
